@@ -2,6 +2,7 @@ package com.example.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -16,6 +17,7 @@ public class ChatView extends LinearLayout {
     private int typeId;
     private String text;
     private TextView textView;
+    private Paint mPaint;
 
     public ChatView(){
         this(null, 0);
@@ -29,24 +31,25 @@ public class ChatView extends LinearLayout {
         super(context, attrs);
         this.context = context;
         this.typeId = id;
+//        mPaint = new Paint();
     }
 
-    /**
-     * id：0为textvew，1为image，2为视频
-     * @param canvas
-     */
-    @Override
-    protected void onDraw(Canvas canvas){
-        super.onDraw(canvas);
-
-        switch (this.typeId){
-            case 0:
-                textView = new TextView(context);
-
-                break;
-        }
-
-    }
+//    /**
+//     * id：0为textvew，1为image，2为视频
+//     * @param canvas
+//     */
+//    @Override
+//    protected void onDraw(Canvas canvas){
+//        super.onDraw(canvas);
+//
+//        switch (this.typeId){
+//            case 0:
+//                textView = new TextView(context);
+//
+//                break;
+//        }
+//
+//    }
 
     /**
      * 给其传入字符串

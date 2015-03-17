@@ -15,7 +15,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.example.slidingmenu.R;
+import com.example.chatlayout.R;
 
 /**
  * Created by Administrator on 2015/3/14.
