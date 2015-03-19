@@ -61,6 +61,7 @@ public class ListAdapter extends BaseAdapter {
         if ( convertView != null && chatMessagesList.size() > 0 ){
 
 
+
         }
 
         return null;
