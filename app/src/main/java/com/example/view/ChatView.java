@@ -1,9 +1,11 @@
 package com.example.view;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -11,12 +13,13 @@ import android.widget.TextView;
 /**
  * Created by Hs on 2015/3/16.
  */
-public class ChatView extends LinearLayout {
+public class ChatView extends View {
 
     private Context context;
     private int typeId;
     private String text;
-    private TextView textView;
+    private Bitmap headPortrait;
+    private TextView textContent;
     private Paint mPaint;
 
     public ChatView(){
@@ -31,30 +34,23 @@ public class ChatView extends LinearLayout {
         super(context, attrs);
         this.context = context;
         this.typeId = id;
-//        mPaint = new Paint();
+
     }
 
-//    /**
-//     * id：0为textvew，1为image，2为视频
-//     * @param canvas
-//     */
-//    @Override
-//    protected void onDraw(Canvas canvas){
-//        super.onDraw(canvas);
-//
-//        switch (this.typeId){
-//            case 0:
-//                textView = new TextView(context);
-//
-//                break;
-//        }
-//
-//    }
+    /**
+     * 传入头像
+     */
+    public void putHeadPortrait(Bitmap headPortrait){
+
+        this.headPortrait = headPortrait;
+
+    }
 
     /**
      * 给其传入字符串
      */
     public void putString(String text){
+
     }
 
     /**
