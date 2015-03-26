@@ -49,9 +49,7 @@ public class ChatView extends View {
     /**
      * 给其传入字符串
      */
-    public void putString(String text){
-
-    }
+    public void putString(String text){}
 
     /**
      * 给其传入图片
