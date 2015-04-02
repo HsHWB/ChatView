@@ -52,11 +52,6 @@ public class ChatListAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         ChatLinearLayout chatLayout = new ChatLinearLayout(this.context, null, this.moduleList.get(position));
-
-//        AbsListView.LayoutParams listParams = new AbsListView.LayoutParams(
-//                screenWidth, screenHeight/8);
-//
-//        chatLayout.setLayoutParams(listParams);
         return chatLayout;
     }
 }

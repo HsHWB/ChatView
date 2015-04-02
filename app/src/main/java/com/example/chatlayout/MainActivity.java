@@ -1,8 +1,7 @@
 package com.example.chatlayout;
 
 import android.app.Activity;
-import android.graphics.Matrix;
-import android.support.v7.app.ActionBarActivity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Menu;
@@ -11,6 +10,7 @@ import android.widget.ListView;
 
 import com.example.adapter.ChatListAdapter;
 import com.example.module.ChatModule;
+import com.example.util.TimeUtil;
 
 import java.util.ArrayList;
 
@@ -18,9 +18,11 @@ import java.util.ArrayList;
 public class MainActivity extends Activity {
 
     private ListView listView;
+    private String chatTime;
     private int screenHeight = -1;
     private int screenWidth = -1;
-    public DisplayMetrics displayMetrics;
+    private DisplayMetrics displayMetrics;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,11 @@ public class MainActivity extends Activity {
     }
 
     protected void initData(){
+
+        sharedPreferences = getSharedPreferences("Time", 0);
+        chatTime  = (new TimeUtil(getApplicationContext())).getDate();
+        sharedPreferences.edit().putString("lastTime", chatTime).commit();
+        System.out.println("chatTime == "+sharedPreferences.getString("lastTime", null));
 
         ArrayList<ChatModule> moduleList = new ArrayList<ChatModule>();
         ChatModule chatModule1 = new ChatModule(getApplicationContext());
