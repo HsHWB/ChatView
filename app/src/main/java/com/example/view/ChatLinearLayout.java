@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.chatlayout.R;
@@ -19,6 +20,7 @@ import com.example.module.ChatModule;
  */
 public class ChatLinearLayout extends LinearLayout {
 
+    private Context context;
     /**
      * 我方发信息或是对方发信息
      */
@@ -50,6 +52,7 @@ public class ChatLinearLayout extends LinearLayout {
     public ChatLinearLayout(Context context, AttributeSet attrs, ChatModule chatModule){
 
         super(context, attrs);
+        this.context = context;
         this.headBitmap = chatModule.getHeadBitmap();
         this.content = chatModule.getContent();
         this.typeId = chatModule.getTypeId();
@@ -61,10 +64,29 @@ public class ChatLinearLayout extends LinearLayout {
             chatView = LayoutInflater.from(context).inflate(R.layout.chatlinear_left_layout, null, true);
             headImage = (ImageView)chatView.findViewById(R.id.chatlinear_left_head);
             contentText = (TextView)chatView.findViewById(R.id.chatlinear_left_content);
+            /**
+             * listView每一项都为屏幕高度的1/8
+             */
+            AbsListView.LayoutParams lp = new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT);
+            setLayoutParams(lp);
+
+            LinearLayout.LayoutParams linearParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT);
+            linearParams.leftMargin = 5;
+            addView(chatView, linearParams);
         }else{
             chatView = LayoutInflater.from(context).inflate(R.layout.chatlinear_right_layout,null, true);
             headImage = (ImageView)chatView.findViewById(R.id.chatlinear_right_head);
             contentText = (TextView)chatView.findViewById(R.id.chatlinear_right_content);
+            AbsListView.LayoutParams lp = new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT);
+            setLayoutParams(lp);
+
+            LinearLayout.LayoutParams linearParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT);
+            linearParams.rightMargin = 5;
+            addView(chatView, linearParams);
         }
 
         /**
@@ -80,11 +102,6 @@ public class ChatLinearLayout extends LinearLayout {
         }else{
             contentText.setText("");
         }
-//        ChatLinearLayout.LayoutParams lp = new ChatLinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-//                ViewGroup.LayoutParams.WRAP_CONTENT);
-//        setLayoutParams(lp);
-//        setOrientation(HORIZONTAL);
-        addView(chatView);
     }
 
 
