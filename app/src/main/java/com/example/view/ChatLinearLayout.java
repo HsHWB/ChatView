@@ -5,6 +5,8 @@ import android.graphics.Bitmap;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -78,8 +80,10 @@ public class ChatLinearLayout extends LinearLayout {
         }else{
             contentText.setText("");
         }
-
-        setOrientation(HORIZONTAL);
+//        ChatLinearLayout.LayoutParams lp = new ChatLinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+//                ViewGroup.LayoutParams.WRAP_CONTENT);
+//        setLayoutParams(lp);
+//        setOrientation(HORIZONTAL);
         addView(chatView);
     }
 
